@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 // import axios from "axios";
 import axios from "axios";
-
+import Post from "./Post"
 
 import "./App.css";
 
@@ -9,13 +9,14 @@ import "./App.css";
 function App() {
    // Initialize state to hold image
     
-   const [spacePic, setSpacePic] = useState("");
-
+   const [data, setData] = useState("");
+    
+   console.log(data);
 
    useEffect (() => {
      axios
       .get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
-      .then(res => setSpacePic(res.data.url))
+      .then(res => setData(res.data))
       .catch(err => console.log(err));
    } ,[]);
 
@@ -25,10 +26,9 @@ function App() {
 
     <div className="App">
       <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun 🚀!
+        NASA Photo Of The Day
       </p>
-      <img src={spacePic} alt="space pic of the day"/>
+      <Post spacePic = {data}/>
 
     </div>
   );
