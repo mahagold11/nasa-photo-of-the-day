@@ -2,8 +2,7 @@ import React, {useState, useEffect} from "react";
 // import axios from "axios";
 import axios from "axios";
 import Post from "./Post"
-
-import "./App.css";
+import styled from 'styled-components'
 
 
 function App() {
@@ -24,12 +23,13 @@ function App() {
   return (
    
 
-    <div className="App">
+    <div>
       <p>
         NASA Photo Of The Day
       </p>
-      <Post spacePic = {data}/>
-
+      <div>
+        <Post spacePic = {data}/>
+      </div>
     </div>
   );
 }
